@@ -16,7 +16,9 @@ public class Collectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.score += 1;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+            Debug.Log(gameObject.name + " se regresa a la pool");
         }
+        // TODO HACER QUE SE REGRESE A LA POOL DESPUÉS DE 10 SEGUNDOS
     }
 }

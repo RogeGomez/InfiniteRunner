@@ -14,10 +14,16 @@ public class ObjectsMovement : MonoBehaviour
 
     private void Movement()
     {
-        // if (gameObject.CompareTag("Obstacle") || gameObject.CompareTag("Enemy") || gameObject.CompareTag("Collectable"))
-        // {
-        // }
         float rnd = Random.Range(min, max);
         transform.Translate(Vector3.left * rnd * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Pool"))
+        {
+            this.gameObject.SetActive(false);
+            Debug.Log(gameObject.name + " se regresa a la pool");
+        }
     }
 }
