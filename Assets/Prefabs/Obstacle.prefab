@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   min: 3
   max: 5
+  timeToWait: 10
 --- !u!1 &8719232198557377041
 GameObject:
   m_ObjectHideFlags: 0

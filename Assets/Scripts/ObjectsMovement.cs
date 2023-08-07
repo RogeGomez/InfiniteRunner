@@ -6,6 +6,17 @@ public class ObjectsMovement : MonoBehaviour
 {
     [SerializeField] private float min;
     [SerializeField] private float max;
+    // [SerializeField] private float timeToWait = .2f;
+
+    private Pooling pooling;
+
+    private Vector3 offset;
+
+    private void Start()
+    {
+        // StartCoroutine(HideObject());
+        pooling = FindObjectOfType<Pooling>();
+    }
 
     private void Update()
     {
@@ -20,10 +31,29 @@ public class ObjectsMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Pool"))
+        if (other.CompareTag("Kill"))
         {
-            this.gameObject.SetActive(false);
-            Debug.Log(gameObject.name + " se regresa a la pool");
+            gameObject.SetActive(false);
+            pooling.NewPoolPosition();
+            Debug.Log(gameObject.name + " se ha desactivado");
+        }
+
+        if (other.CompareTag("Collectable"))
+        {
+            HideObject();
         }
     }
+
+    private void HideObject()
+    {
+        gameObject.SetActive(false);
+    }
+
+
+    // IEnumerator HideObject()
+    // {
+    //     yield return new WaitForSeconds(timeToWait);
+    //     gameObject.SetActive(false);
+    //     Debug.Log(gameObject.name + " se desactiva");
+    // }
 }

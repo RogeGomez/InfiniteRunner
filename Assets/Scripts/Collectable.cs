@@ -5,10 +5,12 @@ using UnityEngine;
 public class Collectable : MonoBehaviour
 {
     private GameManager gameManager;
+    private Pooling pooling;
 
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        pooling = FindObjectOfType<Pooling>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,8 +19,8 @@ public class Collectable : MonoBehaviour
         {
             gameManager.score += 1;
             gameObject.SetActive(false);
-            Debug.Log(gameObject.name + " se regresa a la pool");
+            pooling.NewPoolPosition();
+            Debug.Log(gameObject.name + " se desactiva");
         }
-        // TODO HACER QUE SE REGRESE A LA POOL DESPUÉS DE 10 SEGUNDOS
     }
 }

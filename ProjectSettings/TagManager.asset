@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Enemy
   - Collectable
+  - Kill
   - Pool
   layers:
   - Default
