@@ -8,6 +8,8 @@ public class ScenesManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
 
+    private bool pausePanelActive;
+
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -16,8 +18,18 @@ public class ScenesManager : MonoBehaviour
 
     public void Pause()
     {
-        pausePanel.SetActive(true);
-        Time.timeScale = 0;
+        if (pausePanelActive)
+        {
+            pausePanelActive = false;
+            pausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pausePanelActive = true;
+            pausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void RestarGame()
