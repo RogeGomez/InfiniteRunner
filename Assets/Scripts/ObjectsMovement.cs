@@ -6,16 +6,10 @@ public class ObjectsMovement : MonoBehaviour
 {
     [SerializeField] private float min;
     [SerializeField] private float max;
-    // [SerializeField] private float timeToWait = .2f;
-
-    private Pooling pooling;
-
-    private Vector3 offset;
 
     private void Start()
     {
         // StartCoroutine(HideObject());
-        pooling = FindObjectOfType<Pooling>();
     }
 
     private void Update()
@@ -33,9 +27,7 @@ public class ObjectsMovement : MonoBehaviour
     {
         if (other.CompareTag("Kill"))
         {
-            gameObject.SetActive(false);
-            pooling.NewPoolPosition();
-            Debug.Log(gameObject.name + " se ha desactivado");
+            HideObject();
         }
 
         if (other.CompareTag("Collectable"))

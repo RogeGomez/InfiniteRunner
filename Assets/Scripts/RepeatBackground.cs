@@ -15,7 +15,7 @@ public class RepeatBackground : MonoBehaviour
     private void Update()
     {
         transform.Translate(Vector3.left * speed * Time.deltaTime);
-        if (transform.position.x < -36.68)
+        if (transform.position.x < -36.68) // x en 0.36 / -36.68
         {
             transform.position = startPos;
         }

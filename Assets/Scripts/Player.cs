@@ -10,7 +10,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float jumpForce;
 
+    [SerializeField] private GameObject spawning;
+
     private bool isOnTheGround;
+
+    public GameObject coinPrefab;
 
     private void Start()
     {
@@ -44,5 +48,10 @@ public class Player : MonoBehaviour
             scenesManager.GameOver();
             Debug.Log("Game Over");
         }
+    }
+
+    public void ReturnCoinToInitialPosition()
+    {
+        coinPrefab.transform.position = spawning.transform.position;
     }
 }

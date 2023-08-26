@@ -862,12 +862,11 @@ MonoBehaviour:
   spawningObjects: {fileID: 959310285}
   poolingZone: {fileID: 1283998923}
   objectsPrefabs:
-  - {fileID: 161368738865567029, guid: 03a0a1557aacc664b96bb7cafb1ad595, type: 3}
+  - {fileID: 560363954117086536, guid: a1feae7f6775d1044b49953d1bb98558, type: 3}
   - {fileID: 684327852455043799, guid: 126ba6e6126dd8f44bed428afd4b0b92, type: 3}
   - {fileID: 2199715778296282918, guid: e26bbd1edfca3c54b88b1f7b5d831102, type: 3}
   objectsList: []
-  objectsSize: 4
-  player: {fileID: 1260435008}
+  objectsSize: 10
 --- !u!1 &419953747
 GameObject:
   m_ObjectHideFlags: 0
@@ -2100,6 +2099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 22
+  spawning: {fileID: 959310285}
+  coinPrefab: {fileID: 560363954117086536, guid: a1feae7f6775d1044b49953d1bb98558, type: 3}
 --- !u!50 &1260435011
 Rigidbody2D:
   serializedVersion: 4
@@ -2135,7 +2136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1260435008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.97, y: -2.41, z: 0}
+  m_LocalPosition: {x: -5.42, y: -2.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2188,8 +2189,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1283998926}
   - component: {fileID: 1283998925}
+  - component: {fileID: 1283998927}
   m_Layer: 0
-  m_Name: Kill Zone
+  m_Name: Pooling Zone
   m_TagString: Kill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2255,6 +2257,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1283998927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283998923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4b5355d04f45248a19230593fdedbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawning: {fileID: 959310285}
 --- !u!1 &1426876249
 GameObject:
   m_ObjectHideFlags: 0
