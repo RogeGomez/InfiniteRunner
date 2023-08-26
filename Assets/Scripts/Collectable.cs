@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
+    private Player player;
+
     private GameManager gameManager;
-    private Pooling pooling;
+
 
     private void Start()
     {
+        player = FindObjectOfType<Player>();
         gameManager = FindObjectOfType<GameManager>();
-        pooling = FindObjectOfType<Pooling>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -18,9 +20,9 @@ public class Collectable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             gameManager.score += 1;
+            player.ReturnCoinToInitialPosition(gameObject);
             gameObject.SetActive(false);
-            pooling.NewPoolPosition();
-            Debug.Log(gameObject.name + " se desactiva");
+            // Debug.Log(gameObject.name + " se regresa a su posición original");
         }
     }
 }

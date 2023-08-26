@@ -11,8 +11,6 @@ public class Pooling : MonoBehaviour
     [SerializeField] private List<GameObject> objectsList;
     [SerializeField] private int objectsSize = 10;
 
-    [SerializeField] private GameObject player;
-
     private void Start()
     {
         objectsList = new List<GameObject>();
@@ -33,7 +31,7 @@ public class Pooling : MonoBehaviour
 
     private GameObject RequestObjects()
     {
-        for (int i = 0; i < objectsSize; i++)
+        for (int i = 0; i < objectsList.Count; i++)
         {
             if (!objectsList[i].activeInHierarchy)
             {
@@ -49,15 +47,8 @@ public class Pooling : MonoBehaviour
         while (true)
         {
             RequestObjects();
-            float rnd = Random.Range(1, 3.5f);
+            float rnd = Random.Range(.5f, 3.5f);
             yield return new WaitForSeconds(rnd);
         }
     }
-
-    public void NewPoolPosition()
-    {
-        Vector3 offset = new Vector3(17.15f, -0.8f, 0);
-        transform.position = player.transform.position + offset;
-    }
-
 }

@@ -8,11 +8,6 @@ public class ScenesManager : MonoBehaviour
     public GameObject pausePanel;
     public GameObject gameOverPanel;
 
-    private void Update()
-    {
-        Pause();
-    }
-
     public void StartGame()
     {
         SceneManager.LoadScene(1);
@@ -21,11 +16,8 @@ public class ScenesManager : MonoBehaviour
 
     public void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            pausePanel.SetActive(true);
-            Time.timeScale = 0;
-        }
+        pausePanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void RestarGame()
