@@ -22,7 +22,6 @@ public class Collectable : MonoBehaviour
             gameManager.score += 1;
             player.ReturnCoinToInitialPosition(gameObject);
             gameObject.SetActive(false);
-            // Debug.Log(gameObject.name + " se regresa a su posición original");
         }
     }
 }
